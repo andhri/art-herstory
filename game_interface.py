@@ -67,7 +67,7 @@ class GameInterface:
             url1 = self.game.database[option_1]["primaryImage"]
             u = requests.get(url1)
             img1 = Image.open(BytesIO(u.content))
-            img1 = img1.resize((400, 350), Image.LANCZOS)
+            img1 = img1.resize((400, 550), Image.LANCZOS)
             img1 = ImageTk.PhotoImage(img1)
 
             self.name_art_1.config(text=self.game.database[option_1]["objectID"])
@@ -79,7 +79,7 @@ class GameInterface:
             url2 = self.game.database[option_2]["primaryImage"]
             u = requests.get(url2)
             img2 = Image.open(BytesIO(u.content))
-            img2 = img2.resize((400, 350), Image.LANCZOS)
+            img2 = img2.resize((400, 550), Image.LANCZOS)
             img2 = ImageTk.PhotoImage(img2)
 
             self.display_art_2.config(image=img2, command=self.option_2_answer)
@@ -91,13 +91,15 @@ class GameInterface:
             #here will probably go the code to generate the next frame to save the score
 
     def give_feedback(self, players_choice):
-        # self.display_art_1.config(highlightbackground="green", highlightthickness=10)
+        if players_choice == "user's option_1 correct":
+            self.display_art_1.config(highlightbackground="green", highlightthickness=10)
+        elif players_choice == "user's option_1 incorrect":
+            self.display_art_1.config(highlightbackground="red", highlightthickness=10)
+        elif players_choice == "user's option_2 correct":
+            self.display_art_2.config(highlightbackground="green", highlightthickness=10)
+        elif players_choice == "user's option_2 incorrect":
+            self. display_art_2.config(highlightbackground="red", highlightthickness=10)
 
-        # self.display_art_1.config(highlightbackground="red", highlightthickness=10)
-
-        # self. display_art_2.config(highlightbackground="red", highlightthickness=10)
-
-        # self.display_art_2.config(highlightbackground="green", highlightthickness=10)
 
         self.score_label.config(text=f"Score:{self.game.score}")
         self.lives_label.config(text=f"Lives:{self.game.lives}")

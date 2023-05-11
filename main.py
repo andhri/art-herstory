@@ -2,7 +2,7 @@ import json
 from game_logic import ArtGame
 from game_interface import GameInterface
 
-file_name = "art_database/sample_data.json"
+file_name = "art_database/sample_data_portrait.json"
 with open(file_name, 'r') as database:
     data = json.load(database)
 

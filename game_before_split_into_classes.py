@@ -1,7 +1,4 @@
 from tkinter import *
-from game_logic import ArtGame
-from art_details import ArtDetails, file_name
-from art_image import ArtImage
 import json
 import random
 import requests

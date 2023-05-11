@@ -1,6 +1,4 @@
 from tkinter import *
-from art_details import ArtDetails, file_name
-from art_image import ArtImage
 import random
 
 
@@ -36,6 +34,7 @@ class ArtGame():
             print("before score", self.score)
             self.score += 1
             print("after score", self.score)
+            return "user's option_1 correct"
 
             # return True
         elif user_answer == "option_1" and self.database[self.option_1]["objectEndDate"] > self.database[self.option_2]["objectEndDate"]:
@@ -44,8 +43,8 @@ class ArtGame():
             print("before lives", self.lives)
             self.lives -= 1
             print("after lives", self.lives)
+            return "user's option_1 incorrect"
 
-            # return False
 
         elif user_answer == "option_2" and self.database[self.option_2]["objectEndDate"] < self.database[self.option_1]["objectEndDate"]:
             print(self.database[self.option_1]["objectEndDate"])
@@ -54,7 +53,7 @@ class ArtGame():
             self.score += 1
             print("before score", self.score)
             # display_art_2.config(highlightbackground="green", highlightthickness=10)
-        #     return True
+            return "user's option_2 correct"
 
         elif user_answer == "option_2" and  self.database[self.option_2]["objectEndDate"] > self.database[self.option_1]["objectEndDate"]:
             print(self.database[self.option_1]["objectEndDate"])
@@ -62,8 +61,9 @@ class ArtGame():
             print("before lives", self.lives)
             self.lives -= 1
             print("after lives", self.lives)
+            return "user's option_2 incorrect"
 
-            # return False
+
 
 
 
