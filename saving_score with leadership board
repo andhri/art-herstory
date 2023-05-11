@@ -23,7 +23,7 @@ class ArtGameGUI:
         self.save_button = Button(self.master, text="Save Score", command=self.save_score)
         self.save_button.grid(column=3, row=0)
 
-        # Rest of the GUI setup...
+       
 
     def save_score(self):
         player_name = self.get_player_name()  # Get the player name from the user
@@ -64,7 +64,6 @@ class ArtGameGUI:
         player_name = simpledialog.askstring("Player Name", "Enter your name:")
         return player_name
 
-    # Rest of the class code...
 
 # Create an instance of the ArtGameGUI class
 root = Tk()
