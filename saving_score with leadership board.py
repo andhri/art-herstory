@@ -1,4 +1,4 @@
-rom tkinter import *
+from tkinter import *
 import pickle
 from tkinter import simpledialog
 from datetime import datetime
