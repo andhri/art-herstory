@@ -29,6 +29,7 @@ class ArtGame():
 
     def check_year(self, user_answer):
         if user_answer == "option_1" and self.database[self.option_1]["objectEndDate"] < self.database[self.option_2]["objectEndDate"]:
+            # self.correct_answer_sound()
             print(self.database[self.option_1]["objectEndDate"])
             print(self.database[self.option_2]["objectEndDate"])
             print("before score", self.score)
@@ -36,15 +37,15 @@ class ArtGame():
             print("after score", self.score)
             return "user's option_1 correct"
 
-            # return True
+
         elif user_answer == "option_1" and self.database[self.option_1]["objectEndDate"] > self.database[self.option_2]["objectEndDate"]:
             print(self.database[self.option_1]["objectEndDate"])
             print(self.database[self.option_2]["objectEndDate"])
             print("before lives", self.lives)
             self.lives -= 1
             print("after lives", self.lives)
-            return "user's option_1 incorrect"
 
+            return "user's option_1 incorrect"
 
         elif user_answer == "option_2" and self.database[self.option_2]["objectEndDate"] < self.database[self.option_1]["objectEndDate"]:
             print(self.database[self.option_1]["objectEndDate"])
@@ -52,7 +53,6 @@ class ArtGame():
             print("before score", self.score)
             self.score += 1
             print("before score", self.score)
-            # display_art_2.config(highlightbackground="green", highlightthickness=10)
             return "user's option_2 correct"
 
         elif user_answer == "option_2" and  self.database[self.option_2]["objectEndDate"] > self.database[self.option_1]["objectEndDate"]:
@@ -62,6 +62,7 @@ class ArtGame():
             self.lives -= 1
             print("after lives", self.lives)
             return "user's option_2 incorrect"
+
 
 
 
