@@ -13,7 +13,6 @@ with open(file_name, 'r') as database:
 # print(check_index)
 
 play = ArtGame(data)
-print(play.get_option_1(), play.get_option_2())
 play_game = GameInterface(play)
 # print(play.check_year())
 

@@ -5,8 +5,6 @@ import requests
 from io import BytesIO
 import pygame
 
-import pygame
-
 THEME_COLOR = "#EAF6E8"
 CORRECT_SOUND = "correct-6033.mp3"
 INCORRECT_SOUND = "incorrect-buzzer-sound-147336.mp3"
