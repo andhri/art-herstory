@@ -5,13 +5,14 @@ import requests
 from io import BytesIO
 import pygame
 
+import pygame
 
+THEME_COLOR = "#EAF6E8"
+CORRECT_SOUND = "correct-6033.mp3"
+INCORRECT_SOUND = "incorrect-buzzer-sound-147336.mp3"
 
-THEME_COLOR = "#ECDFEC"
 
 class GameInterface:
-
-
     def __init__(self, art_game: ArtGame):
         self.game = art_game
         self.window = Tk()
@@ -55,19 +56,19 @@ class GameInterface:
         self.window.mainloop()
 
     def option_1_answer(self):
-        self.give_feedback(self.game.check_year("option_1"))
+        self.give_feedback(self.game.check_players_choice("option_1"))
 
     def option_2_answer(self):
-        self.give_feedback(self.game.check_year("option_2"))
+        self.give_feedback(self.game.check_players_choice("option_2"))
 
     def generate_options(self):
         self.border_1.config(background=THEME_COLOR, bd=10)
         self.border_2.config(background=THEME_COLOR, bd=10)
 
         if self.game.still_has_lives():
-            option_1 = self.game.get_option_1()
+            option_1 = self.game.get_portrait_by_index('left')
             print(self.game.database[option_1])
-            option_2 = self.game.get_option_2()
+            option_2 = self.game.get_portrait_by_index('right')
             print(self.game.database[option_2])
 
             url1 = self.game.database[option_1]["primaryImage"]
@@ -96,40 +97,32 @@ class GameInterface:
             self.display_art_2.config(state="disabled")
             # here will probably go the code to generate the next frame to save the score
 
-    def incorrect_answer_sound(self):
+    def sound_feedback(self, sound):
         pygame.mixer.init()
-        pygame.mixer.music.load("incorrect-buzzer-sound-147336.mp3")
-        pygame.mixer.music.play(loops=0)
-
-    def correct_answer_sound(self):
-        pygame.mixer.init()
-        pygame.mixer.music.load("correct-6033.mp3")
+        pygame.mixer.music.load(sound)
         pygame.mixer.music.play(loops=0)
 
     def give_feedback(self, players_choice):
         print("!!!this is players choice!", players_choice)
-        if players_choice == "user's option_1 correct":
-            # self.play_sound()
-            # self.display_art_1.config(highlightbackground="green", highlightthickness=10)
-            self.border_1.config(background="green", bd=10)
-            self.correct_answer_sound()
-        elif players_choice == "user's option_1 incorrect":
-            # self.display_art_1.config(highlightbackground="red", highlightthickness=10)
-            self.border_1.config(background="red", bd=10)
-            self.incorrect_answer_sound()
-            # self.play_sound()
-        elif players_choice == "user's option_2 correct":
-            self.border_2.config(background="green", bd=10)
-            self.correct_answer_sound()
-            # self.play_sound()
-            # self.display_art_2.config(highlightbackground="green", highlightthickness=10)
-        elif players_choice == "user's option_2 incorrect":
-            self.border_2.config(background="red", bd=10)
-            self.incorrect_answer_sound()
-            # self. display_art_2.config(highlightbackground="red", highlightthickness=10)
-            # self.play_sound()
+
+        a = players_choice.split('-')
+
+        if a[1] == "correct":
+            if a[0] == 'option_1':
+                self.border_1.config(background="green", bd=10)
+            else:
+                self.border_2.config(background="green", bd=10)
+
+            # self.correct_answer_sound()
+            self.sound_feedback(CORRECT_SOUND)
+        elif a[1] == "incorrect":
+            if a[0] == 'option_1':
+                self.border_1.config(background="red", bd=10)
+            else:
+                self.border_2.config(background="red", bd=10)
+
+            self.sound_feedback(INCORRECT_SOUND)
 
         self.score_label.config(text=f"Score:{self.game.score}")
         self.lives_label.config(text=f"Lives:{self.game.lives}")
         self.window.after(1000, self.generate_options)
-
