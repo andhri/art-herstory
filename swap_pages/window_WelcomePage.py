@@ -22,7 +22,8 @@ class GameInterface(tk.Tk):
 		container.config(padx=20, pady=20, bg=THEME_COLOR)
 		container.grid_rowconfigure(0, weight = 1)
 		container.grid_columnconfigure(0, weight = 1)
-
+		self.game_life = 3
+		self.game_score = 0
 		# initializing frames to an empty array
 		self.frames = {}
 
