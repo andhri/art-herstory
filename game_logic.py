@@ -63,12 +63,3 @@ class ArtGame:
             self.lives -= 1
 
             return f"{user_answer}-incorrect"
-
-
-
-
-
-
-
-
-
