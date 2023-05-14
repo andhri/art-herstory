@@ -41,10 +41,7 @@ class GameInterface(tk.Tk):
 
 		self.show_frame(StartPage)
     
-    # def open_popup(self):
-    #     popup = PopupWindow(self)
-    #     popup.grab_set()
-    #     self.wait_window(popup)
+   
 	# to display the current frame passed as
 	# parameter
 	def show_frame(self, cont):
@@ -90,15 +87,6 @@ class GameInterface(tk.Tk):
 		player_name = simpledialog.askstring("Player Name", "Enter your name:")
 		return player_name
 	
-	# def show_Leaderboard(self):
-	# 	pop = Toplevel(self.master)
-	# 	pop.title("Leaderboard")
-	# 	pop_Label = Label(pop, text="Top 10 scores!")
-	# 	pop_Label.grid(row = 0, column = 0, sticky ="nsew")
-	# 	# leaderboard = Label(pop, text=f'{show_leaderboard}')
-	# 	my_frame = Frame(pop, bg=THEME_COLOR)
-	# 	my_frame.grid(row = 0, column = 0, sticky ="nsew")
-
 # first window frame startpage
 class StartPage(tk.Frame):
 	def __init__(self, parent, controller):
@@ -129,10 +117,7 @@ class StartPage(tk.Frame):
 		# putting the button in its place by
 		# using grid
 		button2.grid(row = 2, column = 3, padx = 10, pady = 10)
-	def do_button(self):
-		page = self.controller.get_page(ResultPage)
-		page.function()
-       
+	       
 # second window frame GamePage
 class GamePage(tk.Frame):
 	
