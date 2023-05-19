@@ -1,6 +1,7 @@
 from tkinter import *
 import main_config
 
+# created this file just to separate main tkinter window so that could easily call in all other code files
 
 class Parent:
     def __init__(self):
