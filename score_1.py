@@ -13,13 +13,16 @@ class SaveGameScore:
         self.game_interface = game_interface
         self.game_score = 0
 
-        self.lives_label = Label(self.master, text="Lives:3", bg=THEME_COLOR, width=10, highlightthickness=0)
+        self.lives_label = Label(self.master, text="Lives:3", bg=THEME_COLOR,
+                                 width=10, highlightthickness=0)
         self.lives_label.grid(column=0, row=0)
 
-        self.score_label = Label(self.master, text="Score:0", bg=THEME_COLOR, width=10, highlightthickness=0)
+        self.score_label = Label(self.master, text="Score:0", 
+                                 bg=THEME_COLOR, width=10, highlightthickness=0)
         self.score_label.grid(column=1, row=0)
 
-        self.leaderboard_button = Button(self.master, text="Leaderboard", command=self.show_leaderboard)
+        self.leaderboard_button = Button(self.master, text="Leaderboard",
+                                         command=self.show_leaderboard)
         self.leaderboard_button.grid(column=2, row=0)
 
         self.save_button = Button(self.master, text="Save Score", command=self.save_score)
@@ -84,13 +87,13 @@ class SaveGameScore:
             existing_names = [entry["Name"] for entry in leaderboard_data]
             if player_name in existing_names:
                 # If the name already exists, show a warning and ask for a different name
-                messagebox.showwarning("Name Taken", "This name is already taken. Please enter a different name.")
+                messagebox.showwarning("Name Taken",
+                                       "This name is already taken. Please enter a different name.")
             else:
                 # If the name is unique, return it
                 return player_name
 
     def update_score(self, score):
-        
-            self.game_score = score
-            self.score_label.config(text=f"Score: {self.game_score}")
+        self.game_score = score
+        self.score_label.config(text=f"Score: {self.game_score}")
 

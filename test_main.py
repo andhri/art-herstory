@@ -15,6 +15,7 @@ def test_load_data(tmp_path):
 # test for when the loading fails on the game
 def test_load_data_missing_file():
     with pytest.raises(FileNotFoundError):
-        load_data()
+        d = load_data()
+        d(file_name = "art_database\sample_data_portrait.json")
 
 
