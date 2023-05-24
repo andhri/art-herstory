@@ -15,12 +15,12 @@ class ArtGame:
         self.option = None
 
     def still_has_lives(self):
-        """ Function to check if the player still has lives """
+        """Method to check if the player still has lives"""
         return self.lives > 0
 
     def get_portrait_by_index(self, position):
-        """ Function to get the index of the dictionary from the list and then return a random option
-         for option 1 and option 2, checking they are not the same """
+        """Method to get the index of the dictionary from the list and then return a random unique option
+         for option 1 and option 2"""
         self.current_id = random.randrange(len(self.database))
         self.option_id = self.database[self.current_id]["objectID"]
         self.option = [self.option_id == i['objectID'] for i in self.database].index(True)
@@ -44,14 +44,14 @@ class ArtGame:
             self.right_choice_index = self.option
 
         return self.option
-
-    """ Function which compares the years """
+    
     @staticmethod
     def check_year(year1, year2):
+        """Method which compares the years """
         return year1 < year2
-
-    """ Function to check which option choice was created first """
+    
     def check_players_choice(self, user_answer):
+        """ Method to check which option choice was created first """
         option_1_year = self.database[self.left_choice_index]["objectEndDate"]
         option_2_year = self.database[self.right_choice_index]["objectEndDate"]
 
@@ -76,9 +76,9 @@ class ArtGame:
             return f"{user_answer}-incorrect"
 
         # function for checking digits below
-
-    """ Function to check if the art title has any integers; replaces any found with an 'X' to hide possible years """
+    
     def replace_title_digits(self, art_title):
+        """ Method to check if the art title has any integers; replaces any found with an 'X' to hide possible years """
         self.art_title = art_title
         k = "X"
         for char in self.art_title:

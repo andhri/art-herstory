@@ -8,6 +8,7 @@ from score import SaveGameScore
 
 
 class GameInterface:
+    """Class for game elements options"""
     def __init__(self, parent: Parent, art_game: ArtGame, art_options: ArtOptions,
                  answers: GameAnswers, game_display: DisplayConfig):
         self.game_logic = art_game
@@ -18,8 +19,8 @@ class GameInterface:
         self.generate_options()
         self.parent.window.mainloop()
 
-    """ Generates 2 random options while the player still has lives; otherwise it triggers the next window """
     def generate_options(self):
+        """ Generates 2 random options while the player still has lives; otherwise it triggers the next window """
         self.game_display.border_1.config(background=main_config.THEME_COLOR, bd=10)
         self.game_display.border_2.config(background=main_config.THEME_COLOR, bd=10)
 
@@ -40,12 +41,12 @@ class GameInterface:
             self.parent.window.destroy()
             self.parent.window.after(1000, SaveGameScore(self.game_logic))
 
-    """ Passes user's choice, compares it with the correct answer and then provides feedback to the user; triggers the next options """
     def option_1_answer(self):
+        """ Passes user's choice, compares it with the correct answer and then provides feedback to the user; triggers the next options """
         self.answers.give_feedback(self.game_logic.check_players_choice("option_1"))
         self.parent.window.after(1000, self.generate_options)
 
-    """ Passes user's choice, compares it with the correct answer and then provides feedback to the user; triggers the next options """
     def option_2_answer(self):
+        """ Passes user's choice, compares it with the correct answer and then provides feedback to the user; triggers the next options """
         self.answers.give_feedback(self.game_logic.check_players_choice("option_2"))
         self.parent.window.after(1000, self.generate_options)

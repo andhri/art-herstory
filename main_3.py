@@ -9,20 +9,19 @@ from parent_interface import Parent
 
 # class GameRun:
 # add an exception here for when the file fails to load, load another file
-""" Loading data in the game """
 def load_data():
+    """ Loading data in the game """
     try:
         file_name = "game_data_clean.json"
         with open(file_name, 'r') as database:
             data = json.load(database)
             return data
     except FileNotFoundError:
-        file_name = "game_data_clean.json"
+        file_name = "art_database\game_data.json"
         with open(file_name, 'r') as database:
             data = json.load(database)
             return data
 
-# load_data()
 
 # id = data[random.randrange(len(data))]["objectID"]
 # print(id)
@@ -30,8 +29,9 @@ def load_data():
 # print(check_index)
 
 
-""" Running the game program """
+
 def run_game():
+    """ Running the game program """
     play = ArtGame(load_data())
     parent = Parent()
     display = DisplayConfig(parent, play)

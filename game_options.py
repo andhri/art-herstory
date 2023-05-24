@@ -13,26 +13,26 @@ class ArtOptions:
         self.game_display = game_display
         self.parent = parent
 
-        self.name_art_1 = Button(self.parent.window, text="option_1.art_name", width=30, bg=main_config.THEME_COLOR,
-                                 highlightbackground=main_config.THEME_COLOR, fg=main_config.TEXT_COLOUR)
+        self.name_art_1 = Button(self.parent.window, text="option_1.art_name", width=30, bg=main_config.THEME_COLOR, cursor=main_config.cur,
+                                 highlightbackground=main_config.THEME_COLOR, font=main_config.bf, fg=main_config.TEXT_COLOUR)
         self.name_art_1.bind('<Configure>', lambda e: self.name_art_1.config(wraplength=self.name_art_1.winfo_width()))
         self.name_art_1.grid(column=0, row=3)
 
-        self.name_art_2 = Button(self.parent.window, text="option_2.art_name", width=30, bg=main_config.THEME_COLOR,
-                                 highlightbackground=main_config.THEME_COLOR, fg=main_config.TEXT_COLOUR)
+        self.name_art_2 = Button(self.parent.window, text="option_2.art_name", width=30, bg=main_config.THEME_COLOR, cursor=main_config.cur,
+                                 highlightbackground=main_config.THEME_COLOR, font=main_config.bf, fg=main_config.TEXT_COLOUR)
         self.name_art_2.bind('<Configure>', lambda e: self.name_art_2.config(wraplength=self.name_art_2.winfo_width()))
         self.name_art_2.grid(column=1, row=3)
 
-    """Checks for blacks and replaces them with '-' """
     @staticmethod
     def empty_addinfo_var(a):
+        """Checks for blacks and replaces them with '-' """
         if a == "" or a is None:
-            return '--'
+            return 'unknown'
         else:
             return a
-
-    """Function to get the data associated with the index generated for option 1 and display it in the pop up """
+    
     def display_option_1(self):
+        """Method to get the data associated with the index generated for option 1 and display it in the pop up """
         option_1 = self.game_logic.get_portrait_by_index('left')
         print(f" Art Details 1: {self.game_logic.database[option_1]}")
         art1 = self.game_logic.database[option_1]
@@ -52,8 +52,8 @@ class ArtOptions:
 
         return option_1
 
-    """Function to get the data associated with the index generated for option 2 and display it in the pop up """
     def display_option_2(self):
+        """Method to get the data associated with the index generated for option 2 and display it in the pop up """
         option_2 = self.game_logic.get_portrait_by_index('right')
         print(f" Art Details 2: {self.game_logic.database[option_2]}")
         art2 = self.game_logic.database[option_2]

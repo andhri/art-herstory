@@ -8,7 +8,7 @@ from parent_interface import Parent
 
 
 class DisplayConfig:
-    """ Initiates the widgets (LabelFrame & Button) which are a core part of the game """
+    """Initiates the widgets (LabelFrame & Button) which are a core part of the game"""
     def __init__(self, parent: Parent, game_logic: ArtGame):
         self.game_logic = game_logic
         self.parent = parent
@@ -19,14 +19,14 @@ class DisplayConfig:
         self.border_2 = LabelFrame(self.parent.window, background=main_config.THEME_COLOR, bd=10)
         self.border_2.grid(column=1, row=2, padx=20, pady=20)
 
-        self.display_art_1 = Button(self.border_1, text="Option 1", highlightthickness=0)
+        self.display_art_1 = Button(self.border_1, text="Option 1", cursor=main_config.cur, highlightthickness=0)
         self.display_art_1.grid(column=0, row=2)
 
-        self.display_art_2 = Button(self.border_2, text="Option 2", highlightthickness=0)
+        self.display_art_2 = Button(self.border_2, text="Option 2", cursor=main_config.cur, highlightthickness=0)
         self.display_art_2.grid(column=1, row=2)
 
-    """ Function to create an image from an URL and then resize it to fit into the screen. """
     def option_image(self, a):
+        """Method to create an image from an URL and then resize it to fit into the screen."""
         url = self.game_logic.database[a]["primaryImage"]
         u = requests.get(url)
         img = Image.open(BytesIO(u.content))

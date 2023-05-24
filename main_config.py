@@ -6,6 +6,7 @@ CORRECT_SOUND = "correct-6033.mp3"
 INCORRECT_SOUND = "incorrect-buzzer-sound-147336.mp3"
 DEFAULT_FONT_COLOUR = "#FF8000"
 TEXT_COLOUR = "#5f5b4c"
+DEFAULT_FONT = "Garamond" # Georgia
 
 # main_window_config
 mw = 'padx=20, pady=20, background=THEME_COLOR'
@@ -17,7 +18,29 @@ gc = 'height=600, width=500, background=THEME_COLOR'
 gl = 'background=THEME_COLOR, width=10'
 
 # game_title_config
-gt = 'background=THEME_COLOR, width=30,highlightthickness=0, padx=20, pady=20, font=("Helvetica", 40, "bold")'
+font_title= ("Garamond", 40, "bold")
+#gt = 'background=THEME_COLOR, width=30, highlightthickness=0, padx=20, pady=20, font=DEFAULT_FONT ' # font=("Book Antiqua", 40, "bold")'
+
+# font_body
+font_body= ("Garamond", 15)
+
+# info button
+i_font = ("Garamond", 12, "italic", "bold")
+
+# score font titles
+s_font = ("Garamond", 20, "italic", "bold")
+
+# score end_of_game title
+se = ("Garamond", 30, 'bold')
+
+# score your_score title
+ss = ("Garamond", 40, 'bold')
+
+# font buttons
+bf = ("Garamond", 12, "bold")
+
+# pop-up font
+pf= ("Garamond", 15, 'bold')
 
 # art_name_button_config
 anB = 'width=30, background=THEME_COLOR'
@@ -29,10 +52,13 @@ abI = 'background=THEME_COLOR, bd=10'
 abC = 'background="green", bd=10'
 
 # art_border_incorrect_config
-abIC = 'background="green", bd=10'
+abIC = 'background="red", bd=10'
+
+# cursor image
+cur= 'hand2'
 
 # game_instructions
-welcome_intro = 'Welcome to the Her ArtStory Game\n' \
+welcome_intro = 'Welcome to the Art HerStory Game\n' \
                 'Explore and play with artworks made by female artists:\n' \
                 '1. Choose which was made earlier by clicking on an image.\n' \
                 '2. Click on a title to see more info about the artwork.\n' \
@@ -53,8 +79,5 @@ game_instructions ='Got stuck?\n' \
 
 
 
-# font_title
-font_title= ("Helvetica", 40, "bold")
 
-# font_body
-font_body= ("Helvetica", 15)
+

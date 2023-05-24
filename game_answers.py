@@ -6,15 +6,16 @@ from display import DisplayConfig
 import main_config
 from parent_interface import Parent
 
-""" Function which handles the sound based on an mp3file """
+
 def sound_feedback(sound):
+    """ Function which handles the sound based on an mp3file """
     pygame.mixer.init()
     pygame.mixer.music.load(sound)
     pygame.mixer.music.play(loops=0)
 
 
 class GameAnswers:
-    """ Sets the lives and the score attributes as Label widgets """
+    """Intilises the lives and the score attributes as Label widgets """
     def __init__(self, parent: Parent, game_logic: ArtGame, display: DisplayConfig):
         self.art_options = ArtOptions
         self.answers = GameAnswers
@@ -35,8 +36,8 @@ class GameAnswers:
         self.score_label.grid(column=1, row=0)
 
 
-    """ Function to provide the user with visual and audio feedback based on their answers """
     def give_feedback(self, players_choice):
+        """Method to provide the user with visual and audio feedback based on their answers """
         print("!!!This is the player's choice!:", players_choice)
 
         a = players_choice.split('-')

@@ -4,8 +4,9 @@ import main_config
 
 # created this file just to separate main tkinter window so that could easily call in all other code files
 
-""" Initialises the main GUI interface """
+
 class Parent:
+    """Initialises the main window"""
     def __init__(self):
         showinfo(title="Welcome!", message=main_config.welcome_intro)
         self.window = Tk()
@@ -13,7 +14,7 @@ class Parent:
         self.window.title("Art HerStory")
         self.window.config(height=600, width=500, padx=20, pady=20, background=main_config.THEME_COLOR)
 
-        self.window.iconbitmap("Black-Code-First-Girls-Logo-Transparent-700x700.ico")
+        self.window.iconbitmap("CFG_logo.ico")
 
         self.canvas = Canvas(self.window)
         self.canvas.config(height=600, width=700, background=main_config.THEME_COLOR)
@@ -27,12 +28,14 @@ class Parent:
         # resized_image= i_image.resize((10,5), Image.LANCZOS)
         # new_image = PhotoImage(resized_image)
         # image = new_image
-        self.instructions_button = Button(self.window, text="i", fg=main_config.DEFAULT_FONT_COLOUR,
+        self.instructions_button = Button(self.window, text="  i  ", font=main_config.i_font, fg=main_config.DEFAULT_FONT_COLOUR,
+                                          activebackground=main_config.DEFAULT_FONT_COLOUR, background='white',
+                                          relief=RIDGE, cursor=main_config.cur, highlightcolor=main_config.DEFAULT_FONT_COLOUR,
                                           highlightbackground=main_config.THEME_COLOR, command=self.show_instructions)
-        self.instructions_button.grid(column=1, row=1)
+        self.instructions_button.grid(column=0, row=0, columnspan=2)
 
-    """ Function to display instructions which helps the player """
     def show_instructions(self):
+        """Method to display instructions which helps the player """
         global pop
         pop = Toplevel(self.window, bg=main_config.THEME_COLOR)
         pop.title("Game Rules")
