@@ -1,7 +1,7 @@
 # Art HerStory
 
 ## Introduction
-This repository has been created final project of [CFG degree](https://codefirstgirls.com/courses/cfgdegree/) Software Stream Spring 2023 cohort by group OOPsies. The project is based a game which is an adaptation of [Higher vs Lower game](http://www.higherlowergame.com/) and Google Arts & Culture [_What Came First?_ game](https://artsandculture.google.com/experiment/what-came-first/ZQGBUPErEE3bVg?hl=en). 
+This repository has been created for a final project of [CFG degree](https://codefirstgirls.com/courses/cfgdegree/) Software Stream Spring 2023 cohort by group OOPsies. The project is based on a game which is an adaptation of [_Higher vs Lower game_](http://www.higherlowergame.com/) and Google Arts & Culture [_What Came First?_](https://artsandculture.google.com/experiment/what-came-first/ZQGBUPErEE3bVg?hl=en). 
 The game uses data extracted from [MET collections API](https://metmuseum.github.io/#object), and uses work of female artists only. 
 There are significantly lower number of works by female artists in museums and galleries around the world. The National Museum of Women in the Arts, advocates for more diversity in the museums around the word, full facts can be accessed on their [website](https://nmwa.org/support/advocacy/get-facts/), some facts are:
 
@@ -11,7 +11,7 @@ There are significantly lower number of works by female artists in museums and g
 >>>> _"A recent survey of the permanent collections of 18 prominent U.S. art museums found that the represented artists are 87% male and 85% white."_
 
 ## Game
-Our game intends to help close this gap by highlighting the works created by female artists and raising their profile. Through playing this game, users are invited to see the the works by female artists in collection of The Metropolitan Museum of Art (MET) and engage with their works. Some of these works would often be in storage and not on current display, by engaging with the game users will benefit from experiencing works that they may not get a chance to see. They will be able to find out about female artists that they may have not heard of previously, and have fun guessing which artwork was created first. 
+Our game intends to help close this gap by highlighting the works created by female artists and raising their profile. Through playing this game, users are invited to see the the works by female artists in collection of The Metropolitan Museum of Art (MET) and engage with their works. Some of these works would often be in storage and not on current display, by engaging with the game users will benefit from experiencing works that they may not get a chance to see. They will be able to find out about female artists that they may previously not heard of and have fun guessing which artwork was created first. 
 
 ### Rules
 The rules are simple:
