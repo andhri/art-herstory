@@ -1,3 +1,4 @@
+import logging
 import json
 from game_logic_v4 import ArtGame
 from game_inferface_v5 import GameInterface
@@ -5,6 +6,16 @@ from game_answers import GameAnswers
 from game_options import ArtOptions
 from display import DisplayConfig
 from parent_interface import Parent
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter("%(asctime)s:%(name)s:%(message)s")
+
+file_handler =  logging.FileHandler('main.log')
+file_handler.setLevel(logging.ERROR)
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
 
 
 # class GameRun:
@@ -17,6 +28,7 @@ def load_data():
             data = json.load(database)
             return data
     except FileNotFoundError:
+        logger.exception('The file was not found, using alternative file.')
         file_name = "art_database\game_data.json"
         with open(file_name, 'r') as database:
             data = json.load(database)

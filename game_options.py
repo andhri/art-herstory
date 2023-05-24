@@ -1,9 +1,20 @@
+import logging
 from tkinter import *
 from game_logic_v4 import ArtGame
 from display import DisplayConfig
 import main_config
 from parent_interface import Parent
 from add_info_popup import OpenPopUp
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+formatter = logging.Formatter(":%(asctime)s:%(name)s:%(message)s")
+
+file_handler =  logging.FileHandler('options.log')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
 
 
 class ArtOptions:
@@ -34,6 +45,10 @@ class ArtOptions:
     def display_option_1(self):
         """Method to get the data associated with the index generated for option 1 and display it in the pop up """
         option_1 = self.game_logic.get_portrait_by_index('left')
+        logger.info(" Option 1 artist's name: %s", self.game_logic.database[option_1]["artistDisplayName"])
+        logger.info(" Option 1 title: %s", self.game_logic.database[option_1]["title"])
+        logger.info(" Option 2 image: %s", self.game_logic.database[option_1]["primaryImage"])
+        logger.info(" Option 2 WikiQID: %s", self.game_logic.database[option_1]["artistWikidata_URL"])
         print(f" Art Details 1: {self.game_logic.database[option_1]}")
         art1 = self.game_logic.database[option_1]
 
@@ -55,6 +70,10 @@ class ArtOptions:
     def display_option_2(self):
         """Method to get the data associated with the index generated for option 2 and display it in the pop up """
         option_2 = self.game_logic.get_portrait_by_index('right')
+        logger.info(" Option 2 artist's name: %s", self.game_logic.database[option_2]["artistDisplayName"])
+        logger.info(" Option 2 title: %s", self.game_logic.database[option_2]["title"])
+        logger.info(" Option 2 image: %s", self.game_logic.database[option_2]["primaryImage"])
+        logger.info(" Option 2 WikiQID: %s", self.game_logic.database[option_2]["artistWikidata_URL"])
         print(f" Art Details 2: {self.game_logic.database[option_2]}")
         art2 = self.game_logic.database[option_2]
 
