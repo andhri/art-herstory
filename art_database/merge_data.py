@@ -6,8 +6,8 @@ files = ["art_database\sample_data_1840_2020_hands.json",
          "art_database\sample_data_landscape.json",
          "art_database\sample_data_portrait.json",
          "art_database\sample_data_stilllife.json",
-         "art_database\sample_data_v2.json",
-         "art_database\sample_data.json",
+         "art_database\sample_data_random.json",
+         "art_database\sample_data_love.json",
          "art_database\sample_data_abstract.json"
           ]
 
