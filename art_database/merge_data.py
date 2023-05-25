@@ -15,15 +15,15 @@ files = ["art_database\sample_data_1840_2020_hands.json",
 def merge_json(filename):
     all_data = []
     unique_ids= set()
-    # unique_dates = set()
+    unique_dates = set()
     try:
         for file in filename:
             with open(file, 'r') as infile:
                 data = json.load(infile)
                 for item in data:
-                    if item['objectID'] not in unique_ids: # and item['objectEndDate'] not in unique_dates:
+                    if item['objectID'] not in unique_ids and item['objectEndDate'] not in unique_dates:
                         unique_ids.add(item['objectID'])
-                        # unique_dates.add(item['objectEndDate'])
+                        unique_dates.add(item['objectEndDate'])
                         all_data.append(item)
         sorted_data = sorted(all_data, key=lambda d: d["objectID"])
     except Exception as err:
