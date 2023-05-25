@@ -2,11 +2,12 @@ import unittest
 from datetime import datetime
 import pickle
 from tkinter import messagebox
+from game_logic.score import SaveGameScore
 
 class GameTests(unittest.TestCase):
 
     def test_save_score(self):
-        game = Game()
+        game = SaveGameScore()
         game.get_player_name = lambda: "Sefat"  # Mocking user input
 
         # Call the method under test
@@ -25,14 +26,14 @@ class GameTests(unittest.TestCase):
         self.assertEqual(score_entry["Score"], game.game.score)
 
     def test_show_leaderboard(self):
-        game = Game()
+        game = SaveGameScore()
         game.show_leaderboard()
 
         # Check if the leaderboard window is created
         self.assertTrue(game.leaderboard_window)
 
     def test_get_player_name(self):
-        game = Game()
+        game = SaveGameScore()
 
         # Mocking user input
         game.simpledialog.askstring = lambda title, prompt: "Sefat"
@@ -44,7 +45,7 @@ class GameTests(unittest.TestCase):
         self.assertEqual(player_name, "Sefat")
 
     def test_update_score(self):
-        game = Game()
+        game = SaveGameScore()
         score = 6
 
         # Call the method under test
