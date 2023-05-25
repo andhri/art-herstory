@@ -1,6 +1,6 @@
 import logging
 from tkinter import *
-from game_logic.game_logic_v4 import ArtGame
+from game_logic.game_logic import ArtGame
 from game_interface.display import DisplayConfig
 import game_interface.main_config as main_config
 from game_interface.parent_interface import Parent

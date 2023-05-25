@@ -1,4 +1,4 @@
-from main_3 import load_data
+from main import load_data
 import pytest
 
 #### writing tests for the main function ####

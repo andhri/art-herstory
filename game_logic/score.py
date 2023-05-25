@@ -3,7 +3,7 @@ import pickle
 from tkinter import Label, Button, Toplevel, Tk
 from tkinter import simpledialog, messagebox
 from datetime import datetime
-from game_logic.game_logic_v4 import ArtGame
+from game_logic.game_logic import ArtGame
 import game_interface.main_config as main_config
 
 logger = logging.getLogger(__name__)

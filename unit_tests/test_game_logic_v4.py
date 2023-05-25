@@ -1,5 +1,5 @@
 import pytest
-from game_logic.game_logic_v4 import ArtGame
+from game_logic.game_logic import ArtGame
 
 @pytest.fixture
 def mocked_art_database(monkeypatch):

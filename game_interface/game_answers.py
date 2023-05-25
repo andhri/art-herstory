@@ -1,5 +1,5 @@
 from tkinter import *
-from game_logic.game_logic_v4 import ArtGame
+from game_logic.game_logic import ArtGame
 from game_interface.game_options import ArtOptions
 import pygame
 from game_interface.display import DisplayConfig

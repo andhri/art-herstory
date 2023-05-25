@@ -1,5 +1,5 @@
 from tkinter import *
-from game_logic.game_logic_v4 import ArtGame
+from game_logic.game_logic import ArtGame
 import requests
 from io import BytesIO
 from PIL import ImageTk, Image
