@@ -1,6 +1,6 @@
 from tkinter import *
 from game_interface_v2 import GameInterface
-from game_options import ArtOptions
+from game_interface.game_options import ArtOptions
 from game_logic_v3 import ArtGame
 
 

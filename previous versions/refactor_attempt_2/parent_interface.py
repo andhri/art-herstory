@@ -1,5 +1,5 @@
 from tkinter import *
-import main_config
+import game_interface.main_config as main_config
 
 # created this file just to separate main tkinter window so that could easily call in all other code files
 

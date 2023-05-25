@@ -3,8 +3,8 @@ from game_logic_v3 import ArtGame
 from PIL import ImageTk, Image
 import requests
 from io import BytesIO
-from game_answers import GameAnswers
-from display import DisplayConfig
+from game_interface.game_answers import GameAnswers
+from game_interface.display import DisplayConfig
 
 THEME_COLOR = "#EAF6E8"
 

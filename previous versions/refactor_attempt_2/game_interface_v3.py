@@ -1,10 +1,10 @@
 from tkinter import *
 from game_logic_v3 import ArtGame
-from game_options import ArtOptions
-from game_answers import GameAnswers
-from display import DisplayConfig
-import main_config
-from parent_interface import Parent
+from game_interface.game_options import ArtOptions
+from game_interface.game_answers import GameAnswers
+from game_interface.display import DisplayConfig
+import game_interface.main_config as main_config
+from game_interface.parent_interface import Parent
 
 
 class GameInterface:

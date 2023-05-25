@@ -1,9 +1,9 @@
 import json
 from game_logic_v3 import ArtGame
 from game_interface_v3 import GameInterface
-from game_answers import GameAnswers
-from game_options import ArtOptions
-from display import DisplayConfig
+from game_interface.game_answers import GameAnswers
+from game_interface.game_options import ArtOptions
+from game_interface.display import DisplayConfig
 
 
 # class GameRun:

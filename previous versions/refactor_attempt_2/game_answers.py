@@ -1,11 +1,11 @@
 from tkinter import *
 from game_logic_v3 import ArtGame
-import main_config
-from game_options import ArtOptions
+import game_interface.main_config as main_config
+from game_interface.game_options import ArtOptions
 import pygame
-from display import DisplayConfig
-import main_config
-from parent_interface import Parent
+from game_interface.display import DisplayConfig
+import game_interface.main_config as main_config
+from game_interface.parent_interface import Parent
 
 
 def sound_feedback(sound):

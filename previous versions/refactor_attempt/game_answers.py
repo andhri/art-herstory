@@ -1,6 +1,6 @@
 from tkinter import *
 from game_logic_v3 import ArtGame
-import main_config
+import game_interface.main_config as main_config
 # from game_options import ArtOptions
 import pygame
 

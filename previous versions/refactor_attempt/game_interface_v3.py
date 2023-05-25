@@ -1,13 +1,13 @@
 from tkinter import *
 from game_logic_v3 import ArtGame
-from game_options import ArtOptions
-from game_answers import GameAnswers
-from display import DisplayConfig
+from game_interface.game_options import ArtOptions
+from game_interface.game_answers import GameAnswers
+from game_interface.display import DisplayConfig
 from PIL import ImageTk, Image
 import requests
 from io import BytesIO
 
-import main_config
+import game_interface.main_config as main_config
 
 THEME_COLOR = "#EAF6E8"
 

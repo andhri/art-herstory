@@ -3,8 +3,8 @@ from game_logic_v3 import ArtGame
 import requests
 from io import BytesIO
 from PIL import ImageTk, Image
-import main_config
-from parent_interface import Parent
+import game_interface.main_config as main_config
+from game_interface.parent_interface import Parent
 
 
 class DisplayConfig:
