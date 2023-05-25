@@ -8,6 +8,9 @@ DEFAULT_FONT_COLOUR = "#FF8000"
 TEXT_COLOUR = "#5f5b4c"
 DEFAULT_FONT = "Garamond" # Georgia
 
+# game logo
+logo = 'CFG_logo.ico'
+
 # main_window_config
 mw = 'padx=20, pady=20, background=THEME_COLOR'
 
@@ -19,7 +22,6 @@ gl = 'background=THEME_COLOR, width=10'
 
 # game_title_config
 font_title= ("Garamond", 40, "bold")
-#gt = 'background=THEME_COLOR, width=30, highlightthickness=0, padx=20, pady=20, font=DEFAULT_FONT ' # font=("Book Antiqua", 40, "bold")'
 
 # font_body
 font_body= ("Garamond", 15)
@@ -57,7 +59,7 @@ abIC = 'background="red", bd=10'
 # cursor image
 cur= 'hand2'
 
-# game_instructions
+# game_instructions welcome page
 welcome_intro = 'Welcome to the Art HerStory Game\n' \
                 'Explore and play with artworks made by female artists:\n' \
                 '1. Choose which was made earlier by clicking on an image.\n' \
@@ -68,7 +70,7 @@ welcome_intro = 'Welcome to the Art HerStory Game\n' \
                 '6. Click on the "i" button if you get stuck.\n' \
                 'Ready, set, GO!'
 
-
+# game_instructions inside window
 game_instructions ='Got stuck?\n' \
                    'These are the game instructions:\n' \
                    '1. You have 3 lives to guess before the game ends.\n' \
@@ -76,8 +78,3 @@ game_instructions ='Got stuck?\n' \
                    '3. Choose which was made earlier by clicking on an image.\n' \
                    '4. Click on a title to see more info about the artwork.\n' \
                    'Have fun and good luck!'
-
-
-
-
-

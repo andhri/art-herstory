@@ -14,7 +14,7 @@ class Parent:
         self.window.title("Art HerStory")
         self.window.config(height=600, width=500, padx=20, pady=20, background=main_config.THEME_COLOR)
 
-        self.window.iconbitmap("CFG_logo.ico")
+        self.window.iconbitmap(main_config.logo)
 
         self.canvas = Canvas(self.window)
         self.canvas.config(height=600, width=700, background=main_config.THEME_COLOR)
