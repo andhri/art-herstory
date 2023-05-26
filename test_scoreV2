@@ -1,0 +1,82 @@
+import unittest
+from unittest.mock import patch, MagicMock
+from game_interface.score import SaveGameScore
+
+class TestSaveGameScore(unittest.TestCase):
+    @patch('game_interface.score.datetime')
+    @patch('game_interface.score.simpledialog')
+    @patch('game_interface.score.messagebox')
+    @patch('game_interface.score.pickle')
+    def test_save_score(self, mock_pickle, mock_messagebox, mock_simpledialog, mock_datetime):
+        # Mock the necessary dependencies
+        mock_datetime.now.return_value.strftime.return_value = "2023-05-22 12:00:00"
+        mock_simpledialog.askstring.return_value = "Player 1"
+        mock_pickle.load.return_value = []
+
+        # Create an instance of SaveGameScore and call the save_score method
+        game_logic = MagicMock()
+        save_score = SaveGameScore(game_logic)
+        save_score.save_score()
+
+        # Assertions
+        mock_pickle.load.assert_called_once_with(open("leaderboard.pkl", "rb"))
+        mock_pickle.dump.assert_called_once()
+        _, dump_call_args, _ = mock_pickle.dump.mock_calls[0]
+        leaderboard_data = dump_call_args[0][1]
+        self.assertEqual(len(leaderboard_data), 1)
+        self.assertEqual(leaderboard_data[0]["Name"], "Player 1")
+        self.assertEqual(leaderboard_data[0]["Score"], game_logic.score)
+        self.assertEqual(leaderboard_data[0]["Timestamp"], "2023-05-22 12:00:00")
+
+        mock_simpledialog.askstring.assert_called_once_with("Player Name", "Enter your name:")
+        mock_messagebox.showwarning.assert_not_called()
+
+    @patch('game_interface.score.pickle')
+    def test_show_leaderboard(self, mock_pickle):
+        # Mock the necessary dependencies
+        mock_pickle.load.return_value = [
+            {"Name": "Player 1", "Score": 10, "Timestamp": "2023-05-20 10:00:00"},
+            {"Name": "Player 2", "Score": 15, "Timestamp": "2023-05-21 12:00:00"}
+        ]
+
+        # Create an instance of SaveGameScore and call the show_leaderboard method
+        game_logic = MagicMock()
+        save_score = SaveGameScore(game_logic)
+        save_score.show_leaderboard()
+
+        # Assertions
+        mock_pickle.load.assert_called_once_with(open("leaderboard.pkl", "rb"))
+        mock_label_text_calls = [call[1][0] for call in mock_pickle.load.mock_calls if call[1][0].startswith("{}. ")]
+        self.assertEqual(len(mock_label_text_calls), 2)
+        self.assertEqual(mock_label_text_calls[0], "1. Player 1: 10 points (2023-05-20 10:00:00)")
+        self.assertEqual(mock_label_text_calls[1], "2. Player 2: 15 points (2023-05-21 12:00:00)")
+
+    @patch('game_interface.score.pickle')
+    @patch('game_interface.score.simpledialog')
+    @patch('game_interface.score.messagebox')
+    def test_get_player_name(self, mock_messagebox, mock_simpledialog, mock_pickle):
+        # Mock the necessary dependencies
+        mock_pickle.load.return_value = [
+            {"Name": "Player 1", "Score": 10, "Timestamp": "2023-05-20 10:00:00"},
+            {"Name": "Player 2", "Score": 15, "Timestamp": "2023-05-21 12:00:00"}
+        ]
+        mock_simpledialog.askstring.return_value = "Player 3"
+
+        # Create an instance of SaveGameScore and call the get_player_name method
+        game_logic = MagicMock()
+        save_score = SaveGameScore(game_logic)
+        player_name = save_score.get_player_name()
+
+        # Assertions
+        mock_simpledialog.askstring.assert_called_once_with("Player Name", "Enter your name:")
+        mock_messagebox.showwarning.assert_not_called()
+        self.assertEqual(player_name, "Player 3")
+
+        # Test case when the entered name already exists
+        mock_simpledialog.askstring.return_value = "Player 1"
+        player_name = save_score.get_player_name()
+        mock_messagebox.showwarning.assert_called_once_with("Name Taken", "This name is already taken. Please enter a different name.")
+        self.assertEqual(player_name, None)
+
+if __name__ == '__main__':
+    unittest.main()
