@@ -1,5 +1,5 @@
 from game_logic.game_logic import ArtGame
-from game_logic.score import SaveGameScore
+from game_interface.score import SaveGameScore
 from game_interface.game_options import ArtOptions
 from game_interface.game_answers import GameAnswers
 from game_interface.display import DisplayConfig

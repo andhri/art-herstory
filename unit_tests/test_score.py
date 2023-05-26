@@ -2,7 +2,7 @@ import unittest
 from datetime import datetime
 import pickle
 from tkinter import messagebox
-from game_logic.score import SaveGameScore
+from game_interface.score import SaveGameScore
 
 class GameTests(unittest.TestCase):
 
