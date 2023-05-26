@@ -5,6 +5,7 @@ from tkinter import simpledialog, messagebox
 from datetime import datetime
 from game_logic import ArtGame
 import main_config as main_config
+import operator
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
