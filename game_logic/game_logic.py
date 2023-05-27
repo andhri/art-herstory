@@ -25,12 +25,10 @@ class ArtGame:
         self.option = [self.option_id == i['objectID'] for i in self.database].index(True)
 
         if position == 'left':
-            print('LEFT')
             self.left_choice_index = self.option
         elif position == 'right' and self.option == self.left_choice_index:
             self.get_portrait_by_index('right')
         elif position == 'right':
-            print('RIGHT')
             self.right_choice_index = self.option
 
         return self.option
