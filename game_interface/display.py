@@ -3,7 +3,7 @@ from game_logic.game_logic import ArtGame
 import requests
 from io import BytesIO
 from PIL import ImageTk, Image
-import game_interface.main_config as main_config
+import game_interface.main_config as mc
 from game_interface.parent_interface import Parent
 
 
@@ -13,16 +13,16 @@ class DisplayConfig:
         self.game_logic = game_logic
         self.parent = parent
 
-        self.border_1 = LabelFrame(self.parent.window, background=main_config.THEME_COLOR, bd=10)
+        self.border_1 = LabelFrame(self.parent.window, background=mc.THEME_COLOR, bd=10)
         self.border_1.grid(column=0, row=2, padx=20, pady=20)
 
-        self.border_2 = LabelFrame(self.parent.window, background=main_config.THEME_COLOR, bd=10)
+        self.border_2 = LabelFrame(self.parent.window, background=mc.THEME_COLOR, bd=10)
         self.border_2.grid(column=1, row=2, padx=20, pady=20)
 
-        self.display_art_1 = Button(self.border_1, text="Option 1", cursor=main_config.cur, highlightthickness=0)
+        self.display_art_1 = Button(self.border_1, text="Option 1", cursor=mc.cur, highlightthickness=0)
         self.display_art_1.grid(column=0, row=2)
 
-        self.display_art_2 = Button(self.border_2, text="Option 2", cursor=main_config.cur, highlightthickness=0)
+        self.display_art_2 = Button(self.border_2, text="Option 2", cursor=mc.cur, highlightthickness=0)
         self.display_art_2.grid(column=1, row=2)
 
     def option_image(self, a):
