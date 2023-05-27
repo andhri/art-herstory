@@ -23,13 +23,13 @@ logger.addHandler(file_handler)
 def load_data():
     """ Loading data in the game """
     try:
-        file_name = "art_database\game_data_clean.json"  
+        file_name = "art_database/game_data_clean.json"  
         with open(file_name, 'r') as database:
             data = json.load(database)
             return data
     except FileNotFoundError:  # exception for when the file fails to load, load another file
         logger.exception('The file was not found, using alternative file.')
-        file_name = "art_database\game_data.json"
+        file_name = "art_database/game_data.json"
         with open(file_name, 'r') as database:
             data = json.load(database)
             return data
