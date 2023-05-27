@@ -7,6 +7,7 @@ from game_interface.game_options import ArtOptions
 from game_interface.display import DisplayConfig
 from game_interface.parent_interface import Parent
 
+# Log for exceptions
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s:%(name)s:%(message)s")
@@ -18,16 +19,15 @@ file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 
-# class GameRun:
-# add an exception here for when the file fails to load, load another file
+# Loading data onto the game
 def load_data():
     """ Loading data in the game """
     try:
-        file_name = "art_database\game_data_clean.json"
+        file_name = "art_database\game_data_clean.json"  
         with open(file_name, 'r') as database:
             data = json.load(database)
             return data
-    except FileNotFoundError:
+    except FileNotFoundError:  # exception for when the file fails to load, load another file
         logger.exception('The file was not found, using alternative file.')
         file_name = "art_database\game_data.json"
         with open(file_name, 'r') as database:
@@ -35,13 +35,7 @@ def load_data():
             return data
 
 
-# id = data[random.randrange(len(data))]["objectID"]
-# print(id)
-# check_index = [id == i['objectID'] for i in data].index(True)
-# print(check_index)
-
-
-
+# Main program
 def run_game():
     """ Running the game program """
     play = ArtGame(load_data())
@@ -53,6 +47,6 @@ def run_game():
     return play_game
 
 
+# running the game
 if __name__ == '__main__':
     run_game()
-# print(play.check_year())
