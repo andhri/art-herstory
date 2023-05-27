@@ -35,7 +35,6 @@ class GameInterface:
             self.game_display.display_art_2.image = img2
 
         else:
-            print("You're Out of Lives!!")
             self.game_display.display_art_1.config(state="disabled")
             self.game_display.display_art_2.config(state="disabled")
             self.parent.window.destroy()

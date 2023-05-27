@@ -54,5 +54,5 @@ class GameAnswers:
 
             sound_feedback(mc.INCORRECT_SOUND)
 
-        self.score_label.config(text=f"Score:{self.game_logic.score}")
-        self.lives_label.config(text=f"Lives:{self.game_logic.lives}")
+        self.score_label.config(text=f"Score: {self.game_logic.score}")
+        self.lives_label.config(text=f"Lives: {self.game_logic.lives}")

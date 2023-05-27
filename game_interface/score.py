@@ -105,7 +105,7 @@ class SaveGameScore:
         top_ten_scores = leaderboard_data[:10]
 
         leaderboard_window = Toplevel(self.master)
-        leaderboard_window.title("Score History")
+        leaderboard_window.title("Leaderboard")
 
         for i, entry in enumerate(top_ten_scores):
             player_name = entry["Name"]
