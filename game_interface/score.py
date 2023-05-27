@@ -1,10 +1,12 @@
 import logging
 import pickle
+import operator
 from tkinter import Label, Button, Toplevel, Tk
 from tkinter import simpledialog, messagebox
 from datetime import datetime
 from game_logic.game_logic import ArtGame
-import game_interface.main_config as main_config
+import game_interface.main_config as mc
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -16,48 +18,55 @@ file_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 
+
 class SaveGameScore:
     """Initialises the second window of the game, at the end of a round"""
     def __init__(self, game_logic: ArtGame):
         self.game = game_logic
         self.master = Tk()
         self.master.title("Art HerStory")
-        self.master.config(padx=20, pady=20, bg=main_config.THEME_COLOR)
+        self.master.config(padx=20, pady=20, bg=mc.THEME_COLOR)
 
-        self.master.iconbitmap(main_config.logo)
+        self.master.iconbitmap(mc.logo)
 
-        self.result = Label(self.master, text="End of game", bg=main_config.THEME_COLOR, width=20,
-                            font=main_config.se, fg=main_config.TEXT_COLOUR, highlightthickness=0)
+        self.result = Label(self.master, text="End of game", bg=mc.THEME_COLOR, width=20,
+                            font=mc.se, fg=mc.TEXT_COLOUR, highlightthickness=0)
         self.result.grid(column=0, row=0, columnspan=2)
 
-        self.score_label = Label(self.master, text=f"Your Final Score: {self.game.score}", bg=main_config.THEME_COLOR,
-                                 width=20, font=main_config.ss, highlightthickness=0, fg=main_config.TEXT_COLOUR,
-                                 highlightbackground=main_config.THEME_COLOR)
+        self.score_label = Label(self.master, text=f"Your Final Score: {self.game.score}", bg=mc.THEME_COLOR,
+                                 width=20, font=mc.ss, highlightthickness=0, fg=mc.TEXT_COLOUR,
+                                 highlightbackground=mc.THEME_COLOR)
         self.score_label.grid(column=0, row=1, columnspan=2)
 
-        self.score_label = Label(self.master, text="Can you beat your score?", bg=main_config.THEME_COLOR, 
-                                 width=20, font=main_config.s_font, highlightthickness=0, fg=main_config.TEXT_COLOUR)
+        self.score_label = Label(self.master, text="Can you beat your score?", bg=mc.THEME_COLOR, 
+                                 width=20, font=mc.s_font, highlightthickness=0, fg=mc.TEXT_COLOUR)
         self.score_label.grid(column=0, row=5, columnspan=2)
 
-        self.score_label = Label(self.master, borderwidth=15, text="Almost a pro!", bg=main_config.THEME_COLOR,
-                                 width=20, font=main_config.font_body, highlightthickness=0, fg=main_config.TEXT_COLOUR)
+        self.score_label = Label(self.master, borderwidth=15, text="Almost a pro!", bg=mc.THEME_COLOR,
+                                 width=20, font=mc.font_body, highlightthickness=0, fg=mc.TEXT_COLOUR)
         self.score_label.grid(column=0, row=4, columnspan=2)
 
-        self.leaderboard_button = Button(self.master, text="Score History", highlightthickness=0, fg=main_config.DEFAULT_FONT_COLOUR,
-                                          activebackground=main_config.DEFAULT_FONT_COLOUR, background='white',
-                                          cursor=main_config.cur, highlightcolor=main_config.DEFAULT_FONT_COLOUR,
-                                          highlightbackground=main_config.THEME_COLOR, font=main_config.bf, command=self.show_leaderboard)
+        self.leaderboard_button = Button(self.master, text="Leaderboard", highlightthickness=0, fg=mc.DEFAULT_FONT_COLOUR,
+                                          activebackground=mc.DEFAULT_FONT_COLOUR, background='white',
+                                          cursor=mc.cur, highlightcolor=mc.DEFAULT_FONT_COLOUR,
+                                          highlightbackground=mc.THEME_COLOR, font=mc.bf, command=self.show_leaderboard)
         self.leaderboard_button.grid(column=0, row=2)
 
-        self.save_button = Button(self.master, text="Save Score", highlightthickness=0, fg=main_config.DEFAULT_FONT_COLOUR,
-                                          activebackground=main_config.DEFAULT_FONT_COLOUR, background='white',
-                                          cursor=main_config.cur, highlightcolor=main_config.DEFAULT_FONT_COLOUR,
-                                          highlightbackground=main_config.THEME_COLOR, font=main_config.bf, command=self.save_score)
+        self.save_button = Button(self.master, text="Save Score", highlightthickness=0, fg=mc.DEFAULT_FONT_COLOUR,
+                                          activebackground=mc.DEFAULT_FONT_COLOUR, background='white',
+                                          cursor=mc.cur, highlightcolor=mc.DEFAULT_FONT_COLOUR,
+                                          highlightbackground=mc.THEME_COLOR, font=mc.bf, command=self.save_score)
         self.save_button.grid(column=1, row=2)
+        
+        self.exit_game = Button(self.master, text="Exit game", highlightthickness=0, fg=mc.DEFAULT_FONT_COLOUR,
+                                          activebackground=mc.DEFAULT_FONT_COLOUR, background='white',
+                                          cursor=mc.cur, highlightcolor=mc.DEFAULT_FONT_COLOUR,
+                                          highlightbackground=mc.THEME_COLOR, font=mc.bf, command=self.master.destroy)
+        self.exit_game.grid(column=0, row=3, columnspan=2)
 
         self.master.mainloop()
 
-        # self.game_interface.score_update_callback = self.update_score  # Set the callback function
+
     def save_score(self):
         """Method to save the player's score in a pkl file with a timestamp"""
         player_name = self.get_player_name()  # Get the player name from the user
@@ -81,7 +90,6 @@ class SaveGameScore:
             pickle.dump(leaderboard_data, file)
 
     def show_leaderboard(self):
-        """Method to read from the file all the previous game scores"""
         try:
             with open("leaderboard.pkl", "rb") as file:
                 leaderboard_data = pickle.load(file)
@@ -89,10 +97,16 @@ class SaveGameScore:
             logger.exception('The file was not found, creating a list.')
             leaderboard_data = []
 
+        # Sort the leaderboard data by score in descending order
+        leaderboard_data.sort(key=operator.itemgetter("Score"), reverse=True)
+
+        # Get the top ten highest scores
+        top_ten_scores = leaderboard_data[:10]
+
         leaderboard_window = Toplevel(self.master)
         leaderboard_window.title("Score History")
 
-        for i, entry in enumerate(leaderboard_data):
+        for i, entry in enumerate(top_ten_scores):
             player_name = entry["Name"]
             score = entry["Score"]
             timestamp = entry["Timestamp"]
