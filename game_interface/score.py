@@ -7,7 +7,7 @@ from datetime import datetime
 from game_logic.game_logic import ArtGame
 import game_interface.main_config as mc
 
-
+# log for exceptions
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s:%(name)s:%(message)s")
@@ -58,7 +58,7 @@ class SaveGameScore:
                                           highlightbackground=mc.THEME_COLOR, font=mc.bf, command=self.save_score)
         self.save_button.grid(column=1, row=2)
         
-        self.exit_game = Button(self.master, text="Exit game", highlightthickness=0, fg=mc.DEFAULT_FONT_COLOUR,
+        self.exit_game = Button(self.master, text="Exit Game", highlightthickness=0, fg=mc.DEFAULT_FONT_COLOUR,
                                           activebackground=mc.DEFAULT_FONT_COLOUR, background='white',
                                           cursor=mc.cur, highlightcolor=mc.DEFAULT_FONT_COLOUR,
                                           highlightbackground=mc.THEME_COLOR, font=mc.bf, command=self.master.destroy)
@@ -90,6 +90,7 @@ class SaveGameScore:
             pickle.dump(leaderboard_data, file)
 
     def show_leaderboard(self):
+        """Method to read from the file all the previous game scores"""
         try:
             with open("leaderboard.pkl", "rb") as file:
                 leaderboard_data = pickle.load(file)
