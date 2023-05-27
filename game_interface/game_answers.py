@@ -9,7 +9,7 @@ from game_interface.parent_interface import Parent
 
 def sound_feedback(sound):
     """Function which handles the sound based on an mp3file """
-    pygame.mixer.init()
+    pygame.mixer.init()            # using pygame library to add sound effects
     pygame.mixer.music.load(sound)
     pygame.mixer.music.play(loops=0)
 
