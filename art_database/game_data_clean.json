@@ -358,6 +358,7 @@
         "primaryImage": "https://images.metmuseum.org/CRDImages/ci/original/1978.295.2ab_F.jpg",
         "culture": "",
         "country": "",
+        "artistWikidata_URL": "",
         "objectDate": "ca. 1887",
         "objectBeginDate": 1882,
         "objectEndDate": 1892
@@ -955,6 +956,7 @@
         "primaryImage": "https://images.metmuseum.org/CRDImages/eg/original/31.6.28_EGDP017256.jpg",
         "culture": "",
         "country": "",
+        "artistWikidata_URL": "",
         "objectDate": "ca. 1504\u20131425 B.C.",
         "objectBeginDate": -1504,
         "objectEndDate": -1504
