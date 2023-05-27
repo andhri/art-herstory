@@ -4,7 +4,7 @@ from game_interface.game_options import ArtOptions
 from game_interface.game_answers import GameAnswers
 from game_interface.display import DisplayConfig
 from game_interface.parent_interface import Parent
-import game_interface.main_config as main_config
+import game_interface.main_config as mc
 
 
 class GameInterface:
@@ -21,8 +21,8 @@ class GameInterface:
 
     def generate_options(self):
         """ Generates 2 random options while the player still has lives; otherwise it triggers the next window """
-        self.game_display.border_1.config(background=main_config.THEME_COLOR, bd=10)
-        self.game_display.border_2.config(background=main_config.THEME_COLOR, bd=10)
+        self.game_display.border_1.config(background=mc.THEME_COLOR, bd=10)
+        self.game_display.border_2.config(background=mc.THEME_COLOR, bd=10)
 
         if self.game_logic.still_has_lives():
 
