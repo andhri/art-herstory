@@ -1,0 +1,33 @@
+import requests
+
+def get_nearby_places(location):
+
+    api_key = 'needed'
+    types = 'museum|art_gallery|exhibition'
+    radius = 5000  # Radius in meters
+
+    
+    url = f'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={location}&radius={radius}&types={types}&key={api_key}'
+    response = requests.get(url)
+
+
+    if response.status_code == 200:
+        data = response.json()
+        results = data['results']
+
+        # Extract relevant information and display the results
+        for place in results:
+            name = place['name']
+            address = place['vicinity']
+            print(f"Name: {name}")
+            print(f"Address: {address}")
+            print('---')
+    else:
+        print("Error occurred while fetching nearby places.")
+
+def main():
+    user_location = input("Enter your location: ")
+    get_nearby_places(user_location)
+
+
+main()
