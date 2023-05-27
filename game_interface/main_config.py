@@ -2,14 +2,14 @@
 
 # THEME_COLOR = "#EAF6E8"
 THEME_COLOR = "#ede5d6"
-CORRECT_SOUND = "game_interface\sound\correct-6033.mp3"
-INCORRECT_SOUND = "game_interface\sound\incorrect-buzzer-sound-147336.mp3"
+CORRECT_SOUND = "game_interface/sound/correct-6033.mp3"
+INCORRECT_SOUND = "game_interface/sound/incorrect-buzzer-sound-147336.mp3"
 DEFAULT_FONT_COLOUR = "#FF8000"
 TEXT_COLOUR = "#5f5b4c"
 DEFAULT_FONT = "Garamond" # Georgia
 
 # game logo
-logo = 'game_interface\images\CFG_logo.ico'
+logo = 'game_interface/images/CFG_logo.ico'
 
 # main_window_config
 mw = 'padx=20, pady=20, background=THEME_COLOR'
