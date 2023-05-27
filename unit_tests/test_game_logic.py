@@ -39,7 +39,6 @@ def game(mocked_art_database):
 
 def test_still_has_lives(game):
     """Test user still has live"""
-    #game = ArtGame("data")
     assert game.lives >= 0
 
 def test_get_portrait_by_index_left(game):
