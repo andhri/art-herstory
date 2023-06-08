@@ -32,13 +32,13 @@ The design of the game runs in three parts; Welcome message, main window and fin
 
 
 ### GUI
-The game runs on Tkinter GUI module, the elements of the game are connected to the paltform's functionalities.
+The game runs on Tkinter GUI module, some of the elements of the game are connected to the paltform's functionalities.
 
 ### Python 3
 The main logic of the game is separated from the GUI elements, meaining it can be easily implemented on another platform. The principles of OOP were used for creating this game. The main logic game has unit tests attached to check its functionality. 
 
 ### Database
-The data was extracted using ETL approach from [MET's API](https://metmuseum.github.io/#object), by creating variety of serach terms to produce desired results. It is saved in JSON format, which was merged into main file, but other JSON files were extracted and the game can be played with a variety of these files.
+The data was extracted using ETL approach from [MET's API](https://metmuseum.github.io/#object), by creating variety of search terms to produce desired results. It is saved in JSON format, which was merged into main file, but other JSON files were extracted and the game can be played with a variety of these files. This can be achieved by changing the file path in t he main.py file.
 
 ## Licence 
 The data extracted for this game are copyrighted from [MET's Open Acess project](https://github.com/metmuseum/openaccess). The program is not intended for mass distribution and in no event will the authors be held liable for any damages arising from the use of it. If anyone wishes to contribute to our project or have any ideas for improvement, please submit a pull request. If you indent to use any elements of this repository for any use, you are free to do so as long as you credit the original authors.
