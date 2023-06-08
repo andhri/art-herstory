@@ -28,7 +28,7 @@ The aim of the game is simple - guess which artwork was created first and beat c
 
 ### Architecture
 The design of the game runs in three parts; Welcome message, main window and final score page.
-![Process Flow Diagram of our project](https://github.com/andhri/guess-who/assets/93336376/8544de2f-bb03-4a29-9386-b44277d0b969)
+![Process Flow Diagram of our project](https://github.com/andhri/art-herstory/assets/93336376/4a6a2fee-0500-406d-83c5-d04fa3f3f9ea)
 
 
 ### GUI
