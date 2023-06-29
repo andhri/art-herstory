@@ -24,6 +24,12 @@ The rules are simple:
 **To play the game please download the files as a ZIP file from this repo. The game can be run from the main.py file.**
 The aim of the game is simple - guess which artwork was created first and beat current score. After running the game, a user is presented with an info message is shown explaining rules of the game, and can enter the game by pressing 'OK' button. The main window includes two images which are buttons and a user is to choose from the images which artwork was created first. A user can find out more information about the artworks by clicking on the title at the bottom of each image. If a user needs more information on how to play the game, they can click on the 'i' button to see the rules of the game again. For each correct answer user gets a point, and for each incorrect answer a user loses a life, meaning they get less incorrect attempts and less change to get better score. The game ends after user loses all their lives. The final score is added up, a user is prompted to save their score using unique name, they can also view their score history board on the last page.
 
+## YouTube walkthrough
+
+We created a walk through vide to help visualise the game:
+
+[![Watch video walkthrough](https://img.youtube.com/vi/9tadgR7TnrQ/sddefault.jpg)](https://youtu.be/9tadgR7TnrQ)
+
 ## Components
 
 ### Architecture
